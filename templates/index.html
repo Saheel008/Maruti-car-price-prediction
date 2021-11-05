@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+    <meta charset="UTF-8">
+    <title>Car price prediction</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+      
+</head>
+
+<body style="background-color: #541dbb;">
+ <div class="login">
+	<h1>AI based on car price predictor by Saheel</h1>
+    <img width="300px" hieght="50px" src="{{url_for('static', filename='pexels-jesse-zheng-1213294.jpg')}}" align="middle" />
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+        <input type="text" name="car_name" value="Maruti Swift Desire" required="required"/>
+        <input type="text" name="km" placeholder="Enter kilometer driven" required="required"/>
+        <input type="text" name="car_age" placeholder="Enter car age" required="required"/>
+        <input type="text" name="engine_size" placeholder="Enter Engine Size as CC" required="required"/>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict car price</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+</body>
+</html>
+
+
